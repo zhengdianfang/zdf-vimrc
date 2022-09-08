@@ -1,0 +1,76 @@
+" M->cmd, A->option, C->control
+" <ESC> - escape, <BS> - backspace, <CR> - return
+
+source .vimrc.keymap
+" leader
+let mapleader = " "
+
+" 启用vim surround功能
+set surround
+" 启用multi cursor
+set multiple-cursors
+" 显示行号
+set nu
+" 显示相对行号
+set rnu
+" 高亮搜索
+set hlsearch
+" 自动定位到输入中的字符串，不需要回车搜索
+set incsearch
+" 显示当前的模式
+set showmode
+" 共享系统粘贴板
+set clipboard=unnamed
+set clipboard+=ideaput
+" 搜索时智能匹配大小写
+set ignorecase smartcase
+set clipboard+=ideaputn
+
+"Vim Edit
+nnoremap L $
+nnoremap H ^
+
+"Idea类跳转
+nnoremap ,e :action SearchEverywhere<CR>
+nnoremap ,g :action FindInPath<CR>
+nnoremap ,s :action FileStructurePopup<CR>
+nnoremap ga :<C-u>action GotoAction<CR>
+nnoremap gb :<C-u>action JumpToLastChange<CR>
+nnoremap gc :<C-u>action GotoClass<CR>
+nnoremap gd :<C-u>action GotoDeclaration<CR>
+nnoremap gs :<C-u>action GotoSuperMethod<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+nnoremap gf :<C-u>action GotoFile<CR>
+nnoremap gm :<C-u>action GotoSymbol<CR>
+nnoremap gu :<C-u>action ShowUsages<CR>
+nnoremap gt :<C-u>action GotoTest<CR>
+nnoremap gp :<C-u>action FindInPath<CR>
+nnoremap gr :<C-u>action RecentFiles<CR>
+nnoremap gh :<C-u>action Back<CR>
+nnoremap gl :<C-u>action Forward<CR>
+
+"Idea开关
+nnoremap ta :action Annotate<cr>  
+nnoremap tb :action ToggleLineBreakpoint<cr>  
+nnoremap tm :action ToggleBookmark<cr>  
+nnoremap tp :action ActivateProjectToolWindow<CR>
+
+"Idea Refactor
+nnoremap U :action FindUsages<CR>
+nnoremap R :action RenameElement<CR>
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+
+"Idea comment
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
+
+"Idea Run
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>rd :action Debug<CR>
+
+
+"Plugin
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
